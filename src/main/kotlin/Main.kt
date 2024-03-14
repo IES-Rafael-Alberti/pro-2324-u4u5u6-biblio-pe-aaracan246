@@ -15,13 +15,16 @@ fun main() {
     val gestorBiblioteca = GestorBiblioteca()
 
     // Añadimos los libros al catálogo:
-    gestorBiblioteca.addLibro(libro1, usuario1)
-    gestorBiblioteca.addLibro(libro2, usuario2)
-    gestorBiblioteca.addLibro(libro3, usuario3)
+//    gestorBiblioteca.addLibro(libro1, usuario1)
+//    gestorBiblioteca.addLibro(libro2, usuario2)
+//    gestorBiblioteca.addLibro(libro3, usuario3)
 
     ConsoleSystem.printer("__________")
 
 
+    RegistroPrestamos().devolverPrestamo(libro3, usuario3)
+    RegistroPrestamos().prestar(libro1, usuario2)
 
+    usuario2.mostrarLibrosEnPosesion()
 
 }

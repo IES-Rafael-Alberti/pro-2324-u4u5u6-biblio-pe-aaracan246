@@ -28,8 +28,5 @@ package org.pebiblioteca
             println("2. Eliminar libro del catálogo.")
             println("3. Salir")
 
-
-
-
         }
     }
