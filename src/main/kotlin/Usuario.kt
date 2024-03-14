@@ -1,17 +1,23 @@
 package org.pebiblioteca
 
-class Usuario(val id: Int, val nombre: String){
+class Usuario(id: Int, private val nombre: String): UtilidadesBiblioteca(){
 
-    constructor(id: Int, nombre: String, listaLibrosEnPosesion: MutableList<Libro>) : this(id, nombre){
 
-        fun mostrarLibrosEnPosesion() = "El usuario ${this.id}, de nombre ${this.nombre} tiene actualmente los siguientes ejemplares: $listaLibrosEnPosesion."
-
-        fun removeLibro(libro: Libro){
-            listaLibrosEnPosesion.remove(libro)
+    val listaLibrosEnPosesion = mutableListOf<Libro>()
+    private var id = id
+        set(value) {
+            generateID()
+            field = value
         }
 
-        fun addLibro(libro: Libro){
-            listaLibrosEnPosesion.add(libro)
-        }
+
+    fun mostrarLibrosEnPosesion() = "El usuario ${this.id}, de nombre ${this.nombre} tiene actualmente los siguientes ejemplares: $listaLibrosEnPosesion."
+
+    fun addLibro(libro: Libro){
+        listaLibrosEnPosesion.add(libro)
+    }
+
+    fun removeLibro(libro: Libro){
+        listaLibrosEnPosesion.remove(libro)
     }
 }

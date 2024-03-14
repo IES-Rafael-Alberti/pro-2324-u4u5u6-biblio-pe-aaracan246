@@ -7,6 +7,11 @@ fun main() {
     val libro3 = Libro(135, "Brave New World", "Aldous Huxley", 1966, "Ficción", Estado.PRESTADO)
     val libroIndeterminado = Libro(0, "Placeholder", "Placeholder", 1500, "Placeholder")
 
+    val usuario1 = Usuario(15, "Paco")
+    val usuario2 = Usuario(16, "Raúl")
+    val usuario3 = Usuario(17, "Alberto")
+
+
     val gestorBiblioteca = GestorBiblioteca()
 
     // Añadimos los libros al catálogo:
@@ -16,25 +21,7 @@ fun main() {
 
     ConsoleSystem.printer("__________")
 
-    // Forzamos distintos tipos de devolución:
-    gestorBiblioteca.devolverLibro(libro1)
-    gestorBiblioteca.devolverLibro(libro3)
 
-    ConsoleSystem.printer("__________")
-
-    //Forzamos distintos tipos de préstamo:
-    gestorBiblioteca.registrarPrestamo(libro1)
-    gestorBiblioteca.registrarPrestamo(libro2)
-
-    ConsoleSystem.printer("__________")
-
-    gestorBiblioteca.checkDisponibilidadLibro(libro1.id)
-    gestorBiblioteca.checkDisponibilidadLibro(libro2.id)
-    gestorBiblioteca.checkDisponibilidadLibro(libro3.id)
-
-    ConsoleSystem.printer("__________")
-
-    gestorBiblioteca.elegirMenu(libroIndeterminado)
 
 
 }

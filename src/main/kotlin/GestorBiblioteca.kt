@@ -24,9 +24,10 @@ open class GestorBiblioteca: UtilidadesBiblioteca(){
      *
      * Añade un libro al catálogo.
      * */
-    fun addLibro(libro: Libro){
+    fun addLibro(libro: Libro, usuario: Usuario){
         generateID()
         libro.id = generateID()
+        usuario.listaLibrosEnPosesion
         catalogoLibros.add(libro)
         ConsoleSystem.printer("¡${libro.titulo} ha sido agregado al catálogo con éxito! Nuevo identificador único: ${libro.id}.")
     }
