@@ -5,9 +5,10 @@ class GestorBiblioteca: UtilidadesBiblioteca(){
     //val registroPrestamos = mutableListOf()
 
     fun elegirMenu(libro: Libro){
+        ConsoleSystem.menuUsuario()
+
         val selection = ConsoleSystem.reader()
 
-        while (selection.toInt() != 3)
             when(selection.toInt()){
 
                 1 -> solicitarDatosLibro(libro)
@@ -18,7 +19,12 @@ class GestorBiblioteca: UtilidadesBiblioteca(){
             }
     }
 
-    fun solicitarDatosLibro(libro: Libro){
+    /**
+     * @param libro
+     *
+     * Solicita los distintos datos para identificar un libro nuevo. Además da la posibilidad de añadir al catálogo dicho libro (sé que esto atenta contra la responsabilidad única).
+     * */
+    private fun solicitarDatosLibro(libro: Libro){
 
         ConsoleSystem.printer("Por favor, inserte el título del libro a ingresar en el catálogo: ")
         val newTitle = ConsoleSystem.reader()
@@ -37,6 +43,18 @@ class GestorBiblioteca: UtilidadesBiblioteca(){
         libro.fechaPubli = newDate
         libro.tematica = newTheme
         generateID()
+
+        ConsoleSystem.printer("¡El libro ${libro.titulo} de ${libro.autor} ha sido identificado con éxito!")
+        ConsoleSystem.printer("¿Desea añadir este libro al catálogo? (y/n)")
+        val y = ConsoleSystem.reader()
+        when(y){
+
+            "y" -> addLibro(libro)
+
+            "n" -> ConsoleSystem.printer("Entendido. No se añadirá al catálogo.")
+
+            else -> ConsoleSystem.printer("Instrucción inválida. Cerrando programa.")
+        }
     }
 
 
@@ -49,7 +67,7 @@ class GestorBiblioteca: UtilidadesBiblioteca(){
         generateID()
         libro.id = generateID()
         catalogoLibros.add(libro)
-        ConsoleSystem.printer("¡${libro.titulo} ha sido agregado al catálogo con éxito!")
+        ConsoleSystem.printer("¡${libro.titulo} ha sido agregado al catálogo con éxito! Nuevo identificador único: ${libro.id}.")
     }
 
     /**

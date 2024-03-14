@@ -5,6 +5,7 @@ fun main() {
     val libro1 = Libro(133, "City of Glass", "Paul Auster", 1992, "Detectivesca", Estado.DISPONIBLE)
     val libro2 = Libro(134, "The Mark on the Wall", "Virginia Woolf", 1981, "Psicológica", Estado.PRESTADO)
     val libro3 = Libro(135, "Brave New World", "Aldous Huxley", 1966, "Ficción", Estado.PRESTADO)
+    val libroIndeterminado = Libro(0, "Placeholder", "Placeholder", 1500, "Placeholder")
 
     val gestorBiblioteca = GestorBiblioteca()
 
@@ -32,4 +33,8 @@ fun main() {
     gestorBiblioteca.checkDisponibilidadLibro(libro3.id)
 
     ConsoleSystem.printer("__________")
+
+    gestorBiblioteca.elegirMenu(libroIndeterminado)
+
+
 }
