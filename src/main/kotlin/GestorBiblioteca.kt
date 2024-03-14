@@ -1,6 +1,6 @@
 package org.pebiblioteca
 
-class GestorBiblioteca{
+class GestorBiblioteca: UtilidadesBiblioteca(){
     private val catalogoLibros = mutableListOf<Libro>()
     //val registroPrestamos = mutableListOf()
 
@@ -12,6 +12,8 @@ class GestorBiblioteca{
      * Añade un libro al catálogo.
      * */
     fun addLibro(libro: Libro){
+        generateID()
+        libro.id = generateID()
         catalogoLibros.add(libro)
         ConsoleSystem.printer("¡${libro.titulo} ha sido agregado al catálogo con éxito!")
     }
