@@ -4,6 +4,40 @@ class GestorBiblioteca: UtilidadesBiblioteca(){
     private val catalogoLibros = mutableListOf<Libro>()
     //val registroPrestamos = mutableListOf()
 
+    fun elegirMenu(libro: Libro){
+        val selection = ConsoleSystem.reader()
+
+        while (selection.toInt() != 3)
+            when(selection.toInt()){
+
+                1 -> solicitarDatosLibro(libro)
+
+                2 -> removeLibro(libro)
+
+                else -> return ConsoleSystem.printer("Saliendo del programa.")
+            }
+    }
+
+    fun solicitarDatosLibro(libro: Libro){
+
+        ConsoleSystem.printer("Por favor, inserte el título del libro a ingresar en el catálogo: ")
+        val newTitle = ConsoleSystem.reader()
+
+        ConsoleSystem.printer("Por favor, inserte el autor del libro a ingresar en el catálogo: ")
+        val newAuthor = ConsoleSystem.reader()
+
+        ConsoleSystem.printer("Por favor, inserte el año del libro a ingresar en el catálogo: ")
+        val newDate = ConsoleSystem.reader().toInt()
+
+        ConsoleSystem.printer("Por favor, inserte la temática del libro a ingresar en el catálogo: ")
+        val newTheme = ConsoleSystem.reader()
+
+        libro.titulo = newTitle
+        libro.autor = newAuthor
+        libro.fechaPubli = newDate
+        libro.tematica = newTheme
+        generateID()
+    }
 
 
     /**

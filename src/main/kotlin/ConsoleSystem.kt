@@ -22,4 +22,14 @@ package org.pebiblioteca
             return readln()
         }
 
+        fun menuUsuario(){
+            println("Menú de usuario:")
+            println("1. Añadir libro al catálogo.")
+            println("2. Eliminar libro del catálogo.")
+            println("3. Salir")
+
+
+
+
+        }
     }
