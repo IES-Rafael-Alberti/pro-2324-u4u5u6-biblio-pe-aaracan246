@@ -6,7 +6,7 @@ enum class Estado{
 /**
  * Los atributos de libro serán privados para controlar su acceso salvo 'id' y 'título' que se requiere de su acceso en otras funciones.
  * */
-open class Libro(var id: Int, var titulo: String, private var autor: String, private var fechaPubli: Int, private var tematica: String, var estado: Estado = Estado.DISPONIBLE) {
+class Libro(id: Int, nombre: String, private var autor: String, private var fechaPubli: Int, private var tematica: String): ElementoBiblioteca(id, nombre), Prestable{
 
 
     init {
@@ -15,6 +15,15 @@ open class Libro(var id: Int, var titulo: String, private var autor: String, pri
         require(fechaPubli in 1200..2024)
         require(tematica.isNotBlank())
     }
+
+    override fun prestar(libro: Libro) {
+        TODO("Not yet implemented")
+    }
+
+    override fun devolver(libro: Libro) {
+        TODO("Not yet implemented")
+    }
+
 
     /**
      * @param libro
