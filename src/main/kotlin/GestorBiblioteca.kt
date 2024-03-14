@@ -1,7 +1,7 @@
 package org.pebiblioteca
 
 open class GestorBiblioteca: UtilidadesBiblioteca(){
-    private val catalogoLibros = mutableListOf<Libro>()
+    val catalogoLibros = mutableListOf<Libro>()
     //val registroPrestamos = mutableListOf()
 
     fun elegirMenu(libro: Libro){
