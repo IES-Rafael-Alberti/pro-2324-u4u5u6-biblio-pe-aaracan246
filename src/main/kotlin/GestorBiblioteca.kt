@@ -1,6 +1,6 @@
 package org.pebiblioteca
 
-class GestorBiblioteca: UtilidadesBiblioteca(){
+open class GestorBiblioteca: UtilidadesBiblioteca(){
     private val catalogoLibros = mutableListOf<Libro>()
     //val registroPrestamos = mutableListOf()
 
@@ -11,52 +11,13 @@ class GestorBiblioteca: UtilidadesBiblioteca(){
 
             when(selection.toInt()){
 
-                1 -> solicitarDatosLibro(libro)
+                1 -> libro.solicitarDatosLibro(libro)
 
                 2 -> removeLibro(libro)
 
                 else -> return ConsoleSystem.printer("Saliendo del programa.")
             }
     }
-
-    /**
-     * @param libro
-     *
-     * Solicita los distintos datos para identificar un libro nuevo. Además da la posibilidad de añadir al catálogo dicho libro (sé que esto atenta contra la responsabilidad única).
-     * */
-    private fun solicitarDatosLibro(libro: Libro){
-
-        ConsoleSystem.printer("Por favor, inserte el título del libro a ingresar en el catálogo: ")
-        val newTitle = ConsoleSystem.reader()
-
-        ConsoleSystem.printer("Por favor, inserte el autor del libro a ingresar en el catálogo: ")
-        val newAuthor = ConsoleSystem.reader()
-
-        ConsoleSystem.printer("Por favor, inserte el año del libro a ingresar en el catálogo: ")
-        val newDate = ConsoleSystem.reader().toInt()
-
-        ConsoleSystem.printer("Por favor, inserte la temática del libro a ingresar en el catálogo: ")
-        val newTheme = ConsoleSystem.reader()
-
-        libro.titulo = newTitle
-        libro.autor = newAuthor
-        libro.fechaPubli = newDate
-        libro.tematica = newTheme
-        generateID()
-
-        ConsoleSystem.printer("¡El libro ${libro.titulo} de ${libro.autor} ha sido identificado con éxito!")
-        ConsoleSystem.printer("¿Desea añadir este libro al catálogo? (y/n)")
-        val y = ConsoleSystem.reader()
-        when(y){
-
-            "y" -> addLibro(libro)
-
-            "n" -> ConsoleSystem.printer("Entendido. No se añadirá al catálogo.")
-
-            else -> ConsoleSystem.printer("Instrucción inválida. Cerrando programa.")
-        }
-    }
-
 
     /**
      * @param libro
@@ -75,7 +36,7 @@ class GestorBiblioteca: UtilidadesBiblioteca(){
      *
      * Elimina un libro del catálogo.
      * */
-    fun removeLibro(libro: Libro){
+    private fun removeLibro(libro: Libro){
         catalogoLibros.remove(libro)
         ConsoleSystem.printer("¡${libro.titulo} ha sido eliminado del catálogo con éxito!")
     }
