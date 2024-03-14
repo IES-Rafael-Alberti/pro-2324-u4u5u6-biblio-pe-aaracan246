@@ -7,5 +7,5 @@ interface Prestable{
 }
 
 
-abstract class ElementoBiblioteca(val id: Int, var titulo: String, var estado: Estado = Estado.DISPONIBLE) {
+abstract class ElementoBiblioteca(var id: Int, var titulo: String, var estado: Estado = Estado.DISPONIBLE) {
 }

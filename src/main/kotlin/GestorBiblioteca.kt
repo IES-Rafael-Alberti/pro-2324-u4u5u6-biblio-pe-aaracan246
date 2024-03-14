@@ -1,5 +1,8 @@
 package org.pebiblioteca
+interface IGestorPrestamos{
 
+
+}
 open class GestorBiblioteca: UtilidadesBiblioteca(){
     val catalogoLibros = mutableListOf<Libro>()
     //val registroPrestamos = mutableListOf()
