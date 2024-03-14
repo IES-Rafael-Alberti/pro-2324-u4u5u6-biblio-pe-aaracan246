@@ -31,4 +31,5 @@ fun main() {
     gestorBiblioteca.checkDisponibilidadLibro(libro2.id)
     gestorBiblioteca.checkDisponibilidadLibro(libro3.id)
 
+    ConsoleSystem.printer("__________")
 }
